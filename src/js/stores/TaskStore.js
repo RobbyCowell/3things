@@ -21,7 +21,7 @@ class TaskStore extends EventEmitter {
       task,
       complete: false
     });
-    console.log("added " + task);
+    this.emit("change");
   }
 
   getAll() {

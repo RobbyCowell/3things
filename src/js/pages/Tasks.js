@@ -7,6 +7,7 @@ import TaskStore from "../stores/TaskStore";
 export default class TaskList extends React.Component {
   constructor() {
     super();
+    this.getTasks = this.getTasks.bind(this);
     this.state = {
       tasks: TaskStore.getAll(),
       value: "Hello"
@@ -14,14 +15,20 @@ export default class TaskList extends React.Component {
   }
 
   componentWillMount() {
-    TaskStore.on("change", () => {
-      this.setState({
-        tasks: TaskStore.getAll()
-      });
+    TaskStore.on("change", this.getTasks);
+  }
+
+  componentWillUnmount() {
+    TaskStore.removeListener("change", this.getTasks);
+  }
+
+  getTasks() {
+    this.setState({
+      tasks: TaskStore.getAll()
     });
   }
 
-  createTask(event){
+  createTask(event) {
     var task = document.getElementById('task').value;
     TaskActions.createTask(task);
   }
