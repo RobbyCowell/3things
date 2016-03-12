@@ -10,7 +10,7 @@ export default class Task extends React.Component {
     const complete = this.props.complete;
 
     return (
-      <p>Task: {text}</p>
+      <p>Task: {text} {complete ? 'complete' : 'pending'}</p>
     );
   }
 }

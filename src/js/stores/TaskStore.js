@@ -9,7 +9,7 @@ class TaskStore extends EventEmitter {
       {
         id: 1,
         text: "This is a completed task",
-        complete: true
+        complete: false
       }
     ];
   }
@@ -21,6 +21,7 @@ class TaskStore extends EventEmitter {
       task,
       complete: false
     });
+    console.log("added " + task);
   }
 
   getAll() {
@@ -34,6 +35,7 @@ class TaskStore extends EventEmitter {
       }
     }
   }
+
 }
 
 const taskStore = new TaskStore;

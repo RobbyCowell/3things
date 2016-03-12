@@ -8,7 +8,8 @@ export default class TaskList extends React.Component {
   constructor() {
     super();
     this.state = {
-      tasks: TaskStore.getAll()
+      tasks: TaskStore.getAll(),
+      value: "Hello"
     };
   }
 
@@ -20,15 +21,22 @@ export default class TaskList extends React.Component {
     });
   }
 
+  createTask(event){
+    var task = document.getElementById('task').value;
+    TaskActions.createTask(task);
+  }
+
   render() {
     const { tasks } = this.state;
     const TaskComponents = tasks.map((task) => {
-      return <Task {...task}/>
+      return <Task key={task.id} {...task}/>
     });
 
     return(
       <div class="components">
         <div>{TaskComponents}</div>
+        <input id="task" />
+        <button onClick={this.createTask.bind(this)}>Create task</button>
       </div>
     );
   }
