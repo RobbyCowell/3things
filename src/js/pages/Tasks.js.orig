@@ -27,10 +27,16 @@ export default class TaskList extends React.Component {
     });
   }
 
+<<<<<<< HEAD
+  createTask(event) {
+    var task = document.getElementById('task').value;
+    TaskActions.createTask(task);
+=======
   createTask(event){
     var task = document.getElementById('task');
     TaskActions.createTask(task.value);
     task.value = "";
+>>>>>>> 1e9e98c0a5cc20a7b43a059f37dca0b89fbc039c
   }
 
   render() {
