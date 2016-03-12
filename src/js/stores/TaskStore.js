@@ -8,8 +8,8 @@ class TaskStore extends EventEmitter {
     this.tasks = [
       {
         id: 1,
-        text: "This is a completed task",
-        complete: false
+        task: "This is a completed task",
+        complete: true
       }
     ];
   }
@@ -21,7 +21,7 @@ class TaskStore extends EventEmitter {
       task,
       complete: false
     });
-    console.log("added " + task);
+    this.emit("change");
   }
 
   getAll() {
