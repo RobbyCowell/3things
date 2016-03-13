@@ -8,19 +8,29 @@ class TaskStore extends EventEmitter {
     this.tasks = [
       {
         id: 1,
-        task: "This is a completed task",
+        text: "This is a completed task",
         complete: true
       }
     ];
   }
 
-  createTask(task) {
+  createTask(text) {
     const id = Date.now();
     this.tasks.push({
       id,
-      task,
+      text,
       complete: false
     });
+    this.emit("change");
+  }
+
+  completeTask(id) {
+    const task = this.tasks.filter(function(task){
+      return task.id === id;
+    })[0];
+
+    task.complete = true;
+    
     this.emit("change");
   }
 
@@ -31,7 +41,10 @@ class TaskStore extends EventEmitter {
   handleActions(action) {
     switch(action.type) {
       case "CREATE_TASK": {
-        this.createTask(action.task);
+        this.createTask(action.text);
+      }
+      case "COMPLETE_TASK": {
+        this.completeTask(action.id);
       }
     }
   }

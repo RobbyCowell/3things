@@ -1,8 +1,15 @@
 import dispatcher from "../dispatcher";
 
-export function createTask(task) {
+export function createTask(text) {
   dispatcher.dispatch({
     type: "CREATE_TASK",
-    task,
+    text,
+  });
+}
+
+export function completeTask(id) {
+  dispatcher.dispatch({
+    type: "COMPLETE_TASK",
+    id,
   });
 }
