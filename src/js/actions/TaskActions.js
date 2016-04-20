@@ -13,5 +13,3 @@ export function completeTask(id) {
     id,
   });
 }
-
-export function
