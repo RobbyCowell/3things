@@ -28,9 +28,9 @@ export default class TaskList extends React.Component {
   }
 
   createTask(event){
-    var task = document.getElementById('task');
-    TaskActions.createTask(task.value);
-    task.value = "";
+    let task = document.getElementById('task').value;
+    TaskActions.createTask(task);
+    document.getElementById('task').value = "";
   }
 
   render() {
@@ -43,7 +43,7 @@ export default class TaskList extends React.Component {
       <div class="components">
         <div>{TaskComponents}</div>
         <input id="task" />
-        <button onClick={this.createTask.bind(this)}>Create task</button>
+        <button onClick={ this.createTask }>Create task</button>
       </div>
     );
   }

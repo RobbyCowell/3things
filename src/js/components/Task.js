@@ -18,7 +18,7 @@ export default class Task extends React.Component {
     return (
       <div>
         <p>Task: {text} {complete ? 'complete' : 'pending'}</p>
-        <button onClick={this.completeTask.bind(this, id)}>Complete</button>
+        <button onClick={ this.completeTask.bind(this, id) }>Complete</button>
       </div>
     );
   }
