@@ -12,6 +12,7 @@ class TaskStore extends EventEmitter {
         complete: true
       }
     ];
+    this.taskCount = 1; //tasks.length
   }
 
   createTask(text) {
@@ -21,6 +22,7 @@ class TaskStore extends EventEmitter {
       text,
       complete: false
     });
+    this.taskCount = this.taskCount +1;
     this.emit("change");
   }
 
@@ -36,6 +38,10 @@ class TaskStore extends EventEmitter {
 
   getAll() {
     return this.tasks;
+  }
+
+  getTaskCount() {
+    return this.taskCount;
   }
 
   handleActions(action) {

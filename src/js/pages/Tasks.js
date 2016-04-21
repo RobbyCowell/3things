@@ -9,7 +9,8 @@ export default class TaskList extends React.Component {
     super();
     this.getTasks = this.getTasks.bind(this);
     this.state = {
-      tasks: TaskStore.getAll()
+      tasks: TaskStore.getAll(),
+      taskCount: TaskStore.getTaskCount()
     };
   }
 
@@ -23,7 +24,8 @@ export default class TaskList extends React.Component {
 
   getTasks() {
     this.setState({
-      tasks: TaskStore.getAll()
+      tasks: TaskStore.getAll(),
+      taskCount: TaskStore.getTaskCount()
     });
   }
 
@@ -34,13 +36,14 @@ export default class TaskList extends React.Component {
   }
 
   render() {
-    const { tasks } = this.state;
+    const tasks = this.state.tasks;
     const TaskComponents = tasks.map((task) => {
       return <Task key={task.id} {...task}/>
     });
 
     return(
       <div class="components">
+        <p>{this.state.taskCount}</p>
         <div>{TaskComponents}</div>
         <input id="task" />
         <button onClick={ this.createTask }>Create task</button>
