@@ -20,6 +20,15 @@
   reminderTime = DateTime.Now(); //Reminds user to add things to the list at specified times of the day
 }
 
+//Current
+this.tasks = [
+  {
+    id: 1,
+    text: "This is a completed task",
+    complete: true
+  }
+];
+
 ##Workflow
 Login - WIP
 

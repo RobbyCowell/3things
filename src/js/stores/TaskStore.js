@@ -6,15 +6,8 @@ import * as NotificationUtility from "../utilities/NotificationUtility";
 class TaskStore extends EventEmitter {
   constructor() {
     super();
-    //TODO Initiliaze these properties as empty when building is complete
-    this.tasks = [
-      {
-        id: 1,
-        text: "This is a completed task",
-        complete: true
-      }
-    ];
-    this.taskCount = 1; //tasks.length
+    this.tasks = [];
+    this.taskCount = this.tasks.length;
   }
 
   createTask(text) {

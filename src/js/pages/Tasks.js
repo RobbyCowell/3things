@@ -44,10 +44,10 @@ export default class TaskList extends React.Component {
     //TODO Add progress bar
     //TODO Add optional description field
     //TODO Make the 'Enter' key submit the form, make this a form rather than a single input maybe
+    //https://facebook.github.io/react/tips/if-else-in-JSX.html
     return(
       <div class="components">
-
-        <p>{this.state.taskCount}</p>
+        <p>{this.state.taskCount > 0 ? this.state.taskCount + " tasks remaining" : "No tasks yet"}</p>
         <div>{TaskComponents}</div>
         <input id="task" />
         <button onClick={ this.createTask }>Create task</button>
