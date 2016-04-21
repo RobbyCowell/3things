@@ -1,10 +1,12 @@
 import { EventEmitter } from "events";
 
 import dispatcher from "../dispatcher";
+import * as NotificationUtility from "../utilities/NotificationUtility";
 
 class TaskStore extends EventEmitter {
   constructor() {
     super();
+    //TODO Initiliaze these properties as empty when building is complete
     this.tasks = [
       {
         id: 1,
@@ -16,14 +18,20 @@ class TaskStore extends EventEmitter {
   }
 
   createTask(text) {
-    const id = Date.now();
-    this.tasks.push({
-      id,
-      text,
-      complete: false
-    });
-    this.taskCount = this.taskCount +1;
-    this.emit("change");
+    //TODO Generate sequential IDs
+    //TODO Move task length to config file or variable
+    if(this.tasks.length >= 3) {
+      NotificationUtility.addNotification("Too many tasks");
+    } else {
+      const id = Date.now();
+      this.tasks.push({
+        id,
+        text,
+        complete: false
+      });
+      this.taskCount = this.taskCount +1;
+      this.emit("change");
+    }
   }
 
   completeTask(id) {
@@ -36,6 +44,7 @@ class TaskStore extends EventEmitter {
     this.emit("change");
   }
 
+  //TODO Refactor the get methods into one
   getAll() {
     return this.tasks;
   }

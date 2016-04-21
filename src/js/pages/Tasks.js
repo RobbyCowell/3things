@@ -41,8 +41,12 @@ export default class TaskList extends React.Component {
       return <Task key={task.id} {...task}/>
     });
 
+    //TODO Add progress bar
+    //TODO Add optional description field
+    //TODO Make the 'Enter' key submit the form, make this a form rather than a single input maybe
     return(
       <div class="components">
+
         <p>{this.state.taskCount}</p>
         <div>{TaskComponents}</div>
         <input id="task" />
