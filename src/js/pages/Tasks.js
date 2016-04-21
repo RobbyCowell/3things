@@ -47,7 +47,7 @@ export default class TaskList extends React.Component {
     //https://facebook.github.io/react/tips/if-else-in-JSX.html
     return(
       <div class="components">
-        <p>{this.state.taskCount > 0 ? this.state.taskCount + " tasks remaining" : "No tasks yet"}</p>
+        <p>{ this.state.taskCount > 0 ? this.state.taskCount + " tasks remaining" : "No tasks yet" }</p>
         <div>{TaskComponents}</div>
         <input id="task" />
         <button onClick={ this.createTask }>Create task</button>
