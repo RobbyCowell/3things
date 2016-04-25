@@ -13,6 +13,7 @@ export default class TaskList extends React.Component {
       tasks: TaskStore.getAll(),
       taskCount: TaskStore.getTaskCount()
     };
+    //Get Date
   }
 
   componentWillMount() {
@@ -54,7 +55,7 @@ export default class TaskList extends React.Component {
     return(
       <div class="components">
         <h2>Tasks { this.state.taskCount > 0 ? this.state.taskCount: "" }</h2>
-        <p>{ this.state.taskCount > 0 ? this.state.taskCount + " tasks remaining" : "No tasks yet" }</p>
+        <p>{ this.state.taskCount > 0 ? "You have " + this.state.taskCount + " tasks remaining today" : "No tasks left!" }</p>
         <div>{ TaskComponents }</div>
 
         <h3>Add a new task</h3>

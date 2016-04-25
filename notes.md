@@ -20,15 +20,6 @@
   reminderTime = DateTime.Now(); //Reminds user to add things to the list at specified times of the day
 }
 
-//Current
-this.tasks = [
-  {
-    id: 1,
-    text: "This is a completed task",
-    complete: true
-  }
-];
-
 ##Workflow
 Login - WIP
 
@@ -40,6 +31,7 @@ Add task button pressed:
   - User enters title
   - User enters optional description
   - System checks number of tasks for the current day
+    - Use moment.js for timing
     - If the task count it higher than the limit (default 3) it gives you a warning
 
 Completed task button pressed:
@@ -48,3 +40,6 @@ Completed task button pressed:
 
 System reminds user to add todos each day at the chosen time (push notification on phone)
 System reminds user to complete the task at a chosen time, or warns them when the day is almost over
+
+##Design
+See recent Dribbble likes

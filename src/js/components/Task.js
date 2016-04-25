@@ -17,11 +17,11 @@ export default class Task extends React.Component {
     let button;
 
     if(complete) {
-      button = <TaskIncompleteButton {...this.props}/>;
+      button = <TaskIncompleteButton { ...this.props }/>;
     } else {
-      button = <TaskCompleteButton {...this.props}/>;
+      button = <TaskCompleteButton { ...this.props }/>;
     }
-    
+
     return (
       <div>
         <p>Task: { text } { complete ? 'complete' : 'pending' }</p>
