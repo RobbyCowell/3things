@@ -1,11 +1,10 @@
 import React from "react";
 
 export default class Layout extends React.Component{
-  render(){
+  render() {
     return(
       <div>
-        <h1>Three Things</h1>
-        {this.props.children}
+        { this.props.children }
       </div>
     )
   }

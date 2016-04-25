@@ -13,3 +13,10 @@ export function completeTask(id) {
     id,
   });
 }
+
+export function uncompleteTask(id) {
+  dispatcher.dispatch({
+    type: "UNCOMPLETE_TASK",
+    id
+  });
+}

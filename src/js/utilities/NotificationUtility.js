@@ -1,3 +1,3 @@
-export function addNotification(text) {
+export function displayNotification(text) {
     alert(text);
 }

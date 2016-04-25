@@ -11,10 +11,9 @@ class TaskStore extends EventEmitter {
   }
 
   createTask(text) {
-    //TODO Generate sequential IDs
     //TODO Move task length to config file or variable
     if(this.tasks.length >= 3) {
-      NotificationUtility.addNotification("Too many tasks");
+      NotificationUtility.displayNotification("Too many tasks");
     } else {
       const id = Date.now();
       this.tasks.push({
@@ -33,11 +32,22 @@ class TaskStore extends EventEmitter {
     })[0];
 
     task.complete = true;
+    this.taskCount = this.taskCount -1;
 
     this.emit("change");
   }
 
-  //TODO Refactor the get methods into one
+  uncompleteTask(id) {
+    const task = this.tasks.filter(function(task) {
+      return task.id === id;
+    })[0];
+
+    task.complete = false;
+    this.taskCount = this.taskCount +1;
+
+    this.emit("change");
+  }
+
   getAll() {
     return this.tasks;
   }
@@ -54,6 +64,10 @@ class TaskStore extends EventEmitter {
       }
       case "COMPLETE_TASK": {
         this.completeTask(action.id);
+        break;
+      }
+      case "UNCOMPLETE_TASK" : {
+        this.uncompleteTask(action.id);
         break;
       }
     }

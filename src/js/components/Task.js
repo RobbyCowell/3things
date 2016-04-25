@@ -1,13 +1,12 @@
 import React from "react";
 import * as TaskActions from "../actions/TaskActions";
 
+import TaskCompleteButton from "../components/TaskCompleteButton";
+import TaskIncompleteButton from "../components/TaskIncompleteButton";
+
 export default class Task extends React.Component {
   constructor(props) {
     super();
-  }
-
-  completeTask(id) {
-    TaskActions.completeTask(id);
   }
 
   render() {
@@ -15,10 +14,18 @@ export default class Task extends React.Component {
     const complete = this.props.complete;
     const id = this.props.id;
 
+    let button;
+
+    if(complete) {
+      button = <TaskIncompleteButton {...this.props}/>;
+    } else {
+      button = <TaskCompleteButton {...this.props}/>;
+    }
+    
     return (
       <div>
         <p>Task: { text } { complete ? 'complete' : 'pending' }</p>
-        <button onClick={ this.completeTask.bind(this, id) }>Complete</button>
+        { button }
       </div>
     );
   }
