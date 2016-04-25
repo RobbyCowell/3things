@@ -43,3 +43,8 @@ System reminds user to complete the task at a chosen time, or warns them when th
 
 ##Design
 See recent Dribbble likes
+
+###Task screen
+  - Summary header
+  - List of tasks
+  - 'Add task' button
