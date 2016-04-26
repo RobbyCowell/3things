@@ -34,5 +34,10 @@
     "react-router": "^2.0.0",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {
+    "node-sass": "^3.6.0",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1"
   }
 }
