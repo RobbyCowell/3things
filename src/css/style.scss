@@ -1,1 +1,11 @@
+//Import modules
 @import "modules/variables.scss";
+
+//Import Foundation & Vendors
+@import "../../node_modules/foundation-sites/dist/foundation.min.css";
+
+//Import partials
+@import "partials/button.scss";
+
+//Import pages
+@import "pages/main-screen.scss";

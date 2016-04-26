@@ -13,7 +13,7 @@ export default class TaskCompleteButton extends React.Component {
   render() {
     const id = this.props.id;
     return(
-      <button onClick={ this.completeTask.bind(this, id) }>Complete</button>
+      <button type="button" className="button" onClick={ this.completeTask.bind(this, id) }>Complete</button>
     );
   }
 }

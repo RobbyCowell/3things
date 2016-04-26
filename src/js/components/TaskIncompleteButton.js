@@ -13,7 +13,7 @@ export default class TaskIncompleteButton extends React.Component {
   render() {
     const id = this.props.id;
     return(
-      <button onClick={ this.uncompleteTask.bind(this, id) }>Mark as uncomplete</button>
+      <button type="button" className="button" onClick={ this.uncompleteTask.bind(this, id) }>Mark as uncomplete</button>
     );
   }
 }
