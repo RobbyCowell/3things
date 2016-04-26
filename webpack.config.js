@@ -1,3 +1,6 @@
+//Remove line to run in debug
+process.env.NODE_ENV = "production"
+
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 var path = require('path');
@@ -19,7 +22,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
+        loaders: ["style", "css?sourceMap", "sass?sourceMap"]
       }
     ]
   },
